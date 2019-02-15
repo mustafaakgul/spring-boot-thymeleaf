@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html   lang="tr"
+        xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <title>Add Element</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+<nav role="navigation">
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/elements">Elements</a></li>
+    </ul>
+</nav>
+
+<form th:action="@{/elements}" th:object="${elementForm}" th:method="post">
+    <table>
+        <tr>
+            <td>Element Name:</td>
+            <td><input type="text" th:field="*{elementName}" /></td>
+            <td th:if="${#fields.hasErrors('elementName')}" th:errors="*{elementName}">Element Name Error will appear here</td>
+        </tr>
+        <tr>
+            <td>Element Type:</td>
+            <td><input type="text" th:field="*{elementType}" /></td>
+            <td th:if="${#fields.hasErrors('elementType')}" th:errors="*{elementType}">Element Type Error will appear here</td>
+        </tr>
+        <tr>
+            <td>Amount:</td>
+            <td><input type="text" th:field="*{amount}" /></td>
+            <td th:if="${#fields.hasErrors('amount')}" th:errors="*{amount}">Amount Error will appear here</td>
+        </tr>
+        <tr>
+            <td><button type="submit">Add</button></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

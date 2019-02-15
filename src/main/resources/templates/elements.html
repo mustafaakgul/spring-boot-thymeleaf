@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html   lang="tr"
+        xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <title>Elements</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+<nav role="navigation">
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/elements/add">Add elements</a></li>
+    </ul>
+</nav>
+<table>
+    <tr>
+        <th></th>
+        <th>Element ID</th>
+        <th>Element code</th>
+        <th>Element name</th>
+        <th>Element type</th>
+    </tr>
+    <tr th:each="element : ${elements}">
+        <td>
+            <form th:action="@{/elements/} + ${element.element_id}" th:method="delete">
+                <button type="submit">Delete</button>
+            </form>
+        </td>
+        <td th:text="${element.element_id}">Element ID will appear here</td>
+        <td th:text="${element.elementCode}">Element code will appear here</td>
+        <td th:text="${element.elementName}">Element name will appear here</td>
+        <td th:text="${element.elementType}">Element type will appear here</td>
+    </tr>
+</table>
+</body>
+</html>
