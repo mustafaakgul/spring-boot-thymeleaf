@@ -11,7 +11,7 @@ public class Element {
     private long element_id;
 
     @Column(name = "code", nullable = false, unique = true)
-    private String elementCode;
+    private String elementCode1;
 
     @Column(name = "name", nullable = false)
     private String elementName;
